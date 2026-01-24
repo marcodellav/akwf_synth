@@ -1,6 +1,6 @@
-from audio import AudioEngine
-from config import AudioConfig, SynthConfig
-from oscillator import ConstantRenderer, SineOscillatorRenderer
+from akwf_synth.audio import AudioEngine
+from akwf_synth.config import AudioConfig, SynthConfig
+from akwf_synth.oscillator import ConstantRenderer, SineOscillatorRenderer
 
 """
 main.py
