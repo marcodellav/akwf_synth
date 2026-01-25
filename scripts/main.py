@@ -1,6 +1,8 @@
 from akwf_synth.audio import AudioEngine
 from akwf_synth.config import AudioConfig, SynthConfig
-from akwf_synth.oscillator import ConstantRenderer, SineOscillatorRenderer
+from akwf_synth.oscillator import WavetableOscillator
+from akwf_synth.wavetable import WaveData
+from loaders.wav_loader import load_data_from_wav_file
 
 """
 main.py
@@ -14,10 +16,11 @@ main.py
 
 
 def main():
+    wave = load_data_from_wav_file("./data/akwf/AKWF/AKWF_0002/AKWF_0130.wav")
     audio_config = AudioConfig()
     # synth_config = SynthConfig()
-    renderer = SineOscillatorRenderer(
-        frequency=1000, amplitude=0.5, sampling_rate=44100
+    renderer = WavetableOscillator(
+        waveform=wave, frequency=110, amplitude=1, sampling_rate=44100
     )
     engine = AudioEngine(renderer, audio_config)
 
