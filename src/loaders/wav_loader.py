@@ -1,5 +1,3 @@
-from dataclasses import dataclass
-
 import numpy as np
 import soundfile as sf
 
@@ -14,9 +12,3 @@ def load_data_from_wav_file(path: str) -> WaveData:
         samples = samples[:, 0]
 
     return WaveData(samples=samples)
-
-
-# wave = load_data_from_wav_file("./data/akwf/AKWF/AKWF_0001/AKWF_0015.wav")
-
-# print(wave.samples)
-# print(wave.samples_normalised)
