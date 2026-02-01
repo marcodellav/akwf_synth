@@ -1,4 +1,6 @@
-from akwf_synth.input.keyboard import NoteOff, NoteOn
+import numpy as np
+
+from akwf_synth.events import NoteOff, NoteOn
 from akwf_synth.oscillator import WavetableOscillator
 from loaders.wav_loader import load_data_from_wav_file
 
@@ -33,7 +35,11 @@ class Voice:
         self.is_active = False
 
     def render(self, frames):
-        return self.oscillator.render(frames)
+        zero_filled_buffer = np.zeros((frames, 1), dtype=np.float32)
+        if self.is_active:
+            return self.oscillator.render(frames)
+        else:
+            return zero_filled_buffer
 
 
 class MonoSynth:
