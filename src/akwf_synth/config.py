@@ -31,3 +31,6 @@ class SynthConfig:
     path_to_waveform: str = "./"
     default_amplitude: float = 0.5
     initial_frequency: float = 73.5
+    base_midi_note: int = 60
+    tuning_reference: float = 440.0
+    tuning_note: int = 69
